@@ -17,5 +17,16 @@ pipeline {
                 sh 'python3 python_app.py'
             }
         }
+        stage("Code coverage") {
+            steps {
+                sh "./gradlew jacocoTestReport" //wywolanie bibloteki do analizy kodu ktora generuje plik w reportDir
+                publishHTML (target: [
+                    reportDir: 'build/reports/jacoco/test/html',
+                    reportFiles: 'index.html',
+                    reportName: "JaCoCo Report"
+                ])
+                sh "./gradlew jacocoTestCoverageVerification" //wywolanie bibloteki do weryfikacji kodu
+            }
+        }
     }
 }
