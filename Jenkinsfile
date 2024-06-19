@@ -9,7 +9,7 @@ pipeline {
         }
         stage("Compile") {
             steps {
-                sh 'python python_app.py'
+                sh 'python3 python_app.py'
         }
 }
     }
