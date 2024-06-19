@@ -1,0 +1,1 @@
+print("Dziala Program w Pythonie i koncze kompilacje")
