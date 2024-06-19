@@ -7,9 +7,13 @@ pipeline {
                 git url: 'https://github.com/BigMoistLochu/PythonJenkinsTest', branch: 'main'
             }
         }
+        stage("Check") {
+            steps {
+                sh ls
+        }
         stage("Compile") {
             steps {
-                sh "sh 'python python_app.py'"
+                sh python python_app.py
         }
 }
     }
