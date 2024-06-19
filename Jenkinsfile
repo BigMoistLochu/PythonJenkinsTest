@@ -9,12 +9,12 @@ pipeline {
         }
         stage("Env") {
             steps {
-                sh ls
+                sh 'ls'
         }
 }
         stage("Compile") {
             steps {
-                sh python python_app.py
+                sh 'python python_app.py'
         }
 }
     }
