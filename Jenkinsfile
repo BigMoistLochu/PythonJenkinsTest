@@ -7,9 +7,13 @@ pipeline {
                 git url: 'https://github.com/BigMoistLochu/PythonJenkinsTest', branch: 'main'
             }
         }
-        stage("Env") {
+        stage("Setup Python Environment") {
             steps {
-                sh 'ls'
+                sh '''
+                    # Update package list and install Python and virtualenv
+                    sudo apt-get update
+                    sudo apt-get install -y python3 python3-venv python3-pip
+                '''
         }
 }
         stage("Compile") {
