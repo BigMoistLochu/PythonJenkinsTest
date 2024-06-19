@@ -10,7 +10,12 @@ pipeline {
         stage("Compile") {
             steps {
                 sh 'python3 python_app.py'
+            }
         }
-}
+        stage("Unit Tests") {
+            steps {
+                sh 'python3 python_app.py'
+            }
+        }
     }
 }
